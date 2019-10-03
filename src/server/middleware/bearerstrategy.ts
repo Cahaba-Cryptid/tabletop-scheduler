@@ -4,6 +4,8 @@ import * as BearerStrategy from 'passport-http-bearer';
 import { ValidToken } from '../utils/security/tokens';
 import { knexDB } from '../db/queries';
 
+//Handles checking if user is valid in db
+
 passport.use(new BearerStrategy.Strategy(async (token, done) => {
     try {
         let payload = await ValidToken(token);

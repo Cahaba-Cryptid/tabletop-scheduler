@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { knexDB } from '../../db/queries';
 
-
-
 let router = Router();
+
+//Requests session details for sinlge posts (for displaying full detail), or for all posts (for home page where info is abridged).
 
 router.get('/:id?', async (req, res) => {
     let id = req.params.id;
@@ -21,6 +21,8 @@ router.get('/:id?', async (req, res) => {
     }
 });
 
+//Posts new sessions to db
+
 router.post('/', async (req, res) => {
     try {
         let data = await knexDB('Sessions').insert(req.body);
@@ -31,6 +33,7 @@ router.post('/', async (req, res) => {
     }
 }); 
 
+//Updates session details
 
 router.put('/:id', async (req, res) => {
     try {
@@ -43,6 +46,8 @@ router.put('/:id', async (req, res) => {
         res.sendStatus(500);
     }
 });
+
+//deletes session entirely
 
 router.delete('/:id', async (req, res) => {
     try {

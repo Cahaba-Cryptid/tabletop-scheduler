@@ -52,11 +52,11 @@ const Sessions: React.SFC<ISessionsProps> = props => {
         }
     };
 
-    useEffect(() => {
-        if(!User || User.userid === null || User.role !== 'admin') {
-            props.history.replace('/login');
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(!User || User.userid === null || User.role !== 'admin') {
+    //         props.history.replace('/login');
+    //     }
+    // }, []);
 
     return (
         <>
